@@ -115,16 +115,16 @@
 
         <div class="col-md-9">
 <!--            需要给添加员工按钮用jQuery绑定一个添加事件-->
-            <butten class="btn btn-primary add_btn" >添加员工</butten>
+            <butten class="btn btn-primary add_btn" >add_employee</butten>
             <p>
                 <table class="table table-bordered table-striped">
                     <thead>
                         <tr>
-                            <th>序号</th>
-                            <th>姓名</th>
-                            <th>年龄</th>
-                            <th>部门</th>
-                            <th>操作</th>
+                            <th>index</th>
+                            <th>name</th>
+                            <th>age</th>
+                            <th>department</th>
+                            <th>operation</th>
                         </tr>
                     </thead>
                     <tbody class="tbody">
@@ -135,8 +135,8 @@
                             <td>development</td>
                             <td>
     <!--                            颜色取什么都可以，但是你得在bootstrap里有这个对应的-->
-                                <button class="btn btn-sm btn-danger delete_btn">删除</button>
-                                <button class="btn btn-sm btn-warning edit_btn">编辑</button>
+                                <button class="btn btn-sm btn-danger delete_btn">delete</button>
+                                <button class="btn btn-sm btn-warning edit_btn">edit</button>
                             </td>
                         </tr>
                         <tr>
@@ -145,8 +145,8 @@
                                 <td>25</td>
                                 <td>sales</td>
                                 <td>
-                                    <button class="btn btn-sm btn-danger delete_btn">删除</button>
-                                <button class="btn btn-sm btn-warning edit_btn">编辑</button>
+                                    <button class="btn btn-sm btn-danger delete_btn">delete</button>
+                                <button class="btn btn-sm btn-warning edit_btn">edit</button>
                                 </td>
                         </tr>
                         <tr>
@@ -155,8 +155,8 @@
                                 <td>31</td>
                                 <td>development</td>
                                 <td>
-                                    <button class="btn btn-sm btn-danger delete_btn">删除</button>
-                                <button class="btn btn-sm btn-warning edit_btn">编辑</button>
+                                    <button class="btn btn-sm btn-danger delete_btn">delete</button>
+                                <button class="btn btn-sm btn-warning edit_btn">edit</button>
                                 </td>
                         </tr>
                     </tbody>
@@ -174,21 +174,21 @@
                         <div class="modal-body">
                             <form>
                                     <div class="form-group">
-                                        <label for="name">姓名</label>
+                                        <label for="name">name</label>
                                         <input type="text" class="form-control" id="name"
                                                placeholder="Name">
                                     </div>
                                     <div class="form-group">
-                                        <label for="age">年龄</label>
+                                        <label for="age">age</label>
                                         <input type="text" class="form-control" id="age"
                                                placeholder="Age">
                                     </div>
                                     <div class="form-group">
-                                        <label for="dep">部门</label>
+                                        <label for="dep">department</label>
                                         <select name="" class="form-control" id="dep">
-                                            <option value="销售部">sales</option>
-                                            <option value="运营部">operation</option>
-                                            <option value="财务部">development</option>
+                                            <option value="sales">sales</option>
+                                            <option value="operation">operation</option>
+                                            <option value="development">development</option>
                                         </select>
                                     </div>
 
@@ -226,8 +226,8 @@
                     <td>${age}</td>
                     <td>${dep}</td>
                     <td>
-                        <button class="btn btn-sm btn-danger delete_btn">删除</button>
-                        <button class="btn btn-sm btn-warning edit_btn">编辑</button>
+                        <button class="btn btn-sm btn-danger delete_btn">delete</button>
+                        <button class="btn btn-sm btn-warning edit_btn">edit</button>
                     </td>
                 </tr>`;
 
@@ -252,7 +252,7 @@
     //编辑事件
     $(".tbody").on("click",".edit_btn",function () {
         //调整标签
-        $(this).html("保存").attr("class","btn btn-sm btn-success keep_btn");
+        $(this).html("save").attr("class","btn btn-sm btn-success keep_btn");
         $(this).parent().siblings().each(function () {
             if ($(this).index()!==0){
                 console.log($(this));
@@ -267,7 +267,7 @@
     //保存事件
     $(".tbody").on("click",".keep_btn",function () {
         //调整标签的样式
-        $(this).html("编辑").attr("class","btn btn-sm btn-warning edit_btn");
+        $(this).html("edit").attr("class","btn btn-sm btn-warning edit_btn");
         $(this).parent().siblings().each(function () {
             if ($(this).index()!==0){ //每一个循环里的$(this)是td标签
                 var v = $(this).children().first().val();//因为td里面放的是input所以我要取它的第一个儿子的值而不是它的值
